@@ -12,40 +12,37 @@ import sys
 
 
 class TrafficLight:
-    def __init__(self, color='red'):
-        self.__color = color
+    __lt = {'red': 7, 'yellow': 2, 'green': 4}
+    __color = 'red'
 
     def running(self):
-        __lt = {'red': 7, 'yellow': 2, 'green': 4}
-        for self.__color in __lt:
-            # if isinstance()
+        for self.__color in self.__lt:
             print(self.__color)
-            print(time.time())
-            time.sleep(__lt.get(self.__color))
-            print(time.time())
+            print('start: ', time.time())
+            time.sleep(self.__lt.get(self.__color))
+            print('stop: ', time.time())
 
 
 class TrafficLightUnit:
-    def __init__(self, color='red'):
-        self.__color = color
-        self.__nextcolor = -1
+    __lt = {'red': 7, 'yellow': 2, 'green': 4}
+    __nextcolor = -1
 
-    def running_one_light(self, color='red'):
-        __lt = {'red': 7, 'yellow': 2, 'green': 4}
+    def running_one_light(self, color):
         self.__color = color
         if self.__color != self.__nextcolor and self.__nextcolor != -1:
             print('malfunction, wrong sequence of colors')
             sys.exit(0)
         print(self.__color)
-        print(time.time())
-        time.sleep(__lt.get(self.__color))
-        print(time.time())
+        print('start: ', time.time())
+        time.sleep(self.__lt.get(self.__color))
+        print('stop: ', time.time())
         __pointer = ['red', 'yellow', 'green'].index(self.__color)
         self.__nextcolor = ['red', 'yellow', 'green'][(0, __pointer + 1)[__pointer != 2]]
 
 
 auto_light = TrafficLight()
 auto_light.running()
+print('\nlight color control')
 one_light = TrafficLightUnit()
 for lg in ('red', 'yellow', 'green'):
     one_light.running_one_light(lg)
