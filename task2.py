@@ -15,10 +15,10 @@ class Road:
         self._width = width
         self.__thickness = 0
 
-    def mass_culc(self, thickness=0):
+    def mass_calc(self, thickness=0):
         self.__thickness = thickness
         return self._length * self._width * 25 * self.__thickness * 0.01 * 0.001
 
 
 ul = Road(20, 5000)
-print(f'{ul.mass_culc(5)} tons')
+print(f'{ul.mass_calc(5)} tons')
