@@ -7,13 +7,11 @@
 Задачу можно усложнить, реализовав проверку порядка режимов, и при его нарушении выводить соответствующее сообщение и
 завершать скрипт.
 """
-import time
-import sys
-
 
 class TrafficLight:
-    __lt = {'red': 7, 'yellow': 2, 'green': 4}
-    __color = 'red'
+    def __init__(self, __green=4):
+        self.__lt = {'red': 7, 'yellow': 2, 'green': __green}
+        self.__color = 'red'
 
     def running(self):
         for self.__color in self.__lt:
@@ -24,8 +22,9 @@ class TrafficLight:
 
 
 class TrafficLightUnit:
-    __lt = {'red': 7, 'yellow': 2, 'green': 4}
-    __nextcolor = -1
+    def __init__(self, __green=4):
+        self.__lt = {'red': 7, 'yellow': 2, 'green': __green}
+        self.__nextcolor = -1
 
     def running_one_light(self, color):
         self.__color = color
