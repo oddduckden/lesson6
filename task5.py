@@ -5,8 +5,10 @@ Handle (маркер). В каждом из классов реализоват�
 выводить уникальное сообщение. Создать экземпляры классов и проверить, что выведет описанный метод для каждого
 экземпляра.
 """
+
+
 class Stationery:
-    def __init__(self, title = ''):
+    def __init__(self, title=''):
         self.title = title
 
     def draw(self):
@@ -15,14 +17,28 @@ class Stationery:
 
 class Pen(Stationery):
     def draw(self):
-        print('запуск отрисовки ручки')
+        print(f'Pen: запуск отрисовки {self.title}')
 
 
 class Pencil(Stationery):
     def draw(self):
-        print('запуск отрисовки карандаша')
+        print(f'Pencil: запуск отрисовки {self.title}')
 
 
 class Handle(Stationery):
     def draw(self):
-        print('запуск отрисовки маркера')
+        print(f'Handle: запуск отрисовки {self.title}')
+
+
+a = Stationery()
+print('Class Stationery')
+a.draw()
+b = Pen('ручка')
+print('Class Pen')
+b.draw()
+c = Pencil('карандаш')
+print('Class Pencil')
+c.draw()
+d = Handle('маркер')
+print('Class Handle')
+d.draw()
